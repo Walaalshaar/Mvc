@@ -1,4 +1,4 @@
-﻿@model List<MvcTodoApp.Models.TaskItem>
+﻿﻿@model List<MvcTodoApp.Models.TaskItem>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,12 @@
                         <input type="hidden" name="id" value="@task.Id" />
                         <button type="submit">اكتملت</button>
                     </form>
-
+                    <!-- نموذج تعديل المهمة -->
+                    <form method="post" asp-action="EditTask" style="display:inline; margin-right:5px;">
+                        <input type="hidden" name="id" value="@task.Id" />
+                        <input type="text" name="newTitle" value="@task.Title" />
+                        <button type="submit">تعديل</button>
+                    </form>
                 }
             </li>
         }

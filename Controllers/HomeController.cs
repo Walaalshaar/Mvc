@@ -50,4 +50,21 @@ namespace MvcTodoApp.Controllers
             return RedirectToAction("Index");
         }
     }
+    // ...existing code...
+
+/// <summary>
+/// تعديل عنوان مهمة.
+/// </summary>
+[HttpPost]
+public IActionResult EditTask(int id, string newTitle)
+{
+    var task = tasks.FirstOrDefault(t => t.Id == id);
+    if (task != null && !string.IsNullOrWhiteSpace(newTitle))
+    {
+        task.Title = newTitle;
+    }
+    return RedirectToAction("Index");
+}
+
+
 }
